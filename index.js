@@ -5,7 +5,7 @@ const db = require('./db');
 app.use(express.json()); 
 
 app.get('/', (req, res) => {
-  res.send('api server is runnign fuckin fine');
+  res.send('APIs Are healthy');
 });
 
 app.post('/save-name', (req, res) => {
