@@ -4,6 +4,17 @@ const db = require('./db');
 
 app.use(express.json()); 
 
+const logger = (req, res, next) => {
+    console.log(req);
+    if(req.headers.authorization === 'Bearer secretToken'){
+        next();
+    }
+    console.log(`${req.method} ${req.url}`);
+    next();
+}
+
+app.use(logger);
+
 app.get('/', (req, res) => {
   res.send('APIs Are healthy');
 });
